@@ -13,20 +13,34 @@ import javax.persistence.Table;
 
 @Table(name = "employees")
 @NamedQueries({
+
+
+    // "getAllEmployees"という名前を付ける
     @NamedQuery(
+            //降順に並べ替えたidカラムに getAllEmployees という名前を付ける
             name = "getAllEmployees",
+            //Employeeクラスのidカラムを降順にすべて並べ替え
             query = "SELECT e FROM Employee AS e ORDER BY e.id DESC"
             ),
+
+    //"getEmployeesCount"という名前を付ける
     @NamedQuery(
             name = "getEmployeesCount",
+            //Employeeカラムを取得？
             query = "SELECT COUNT(e) FROM Employee AS e"
             ),
+
+    //指定された社員番号がすでにDBに存在しているか調べる
     @NamedQuery(
             name = "checkRegisteredCode",
+            //EmployeeクラスのEmployee.codeを取得?
             query = "SELECT COUNT(e) FROM Employee AS e WHERE e.code = :code"
             ),
+
+    //従業員がログインするときに社員番号、パスワードが正しいかチェック
     @NamedQuery(
             name = "checkLoginCodeAndPassword",
+            //?
             query = "SELECT e FROM Employee AS e WHERE e.delete_flag = 0 AND e.code = :code AND e.password = :pass"
             )
 })
@@ -37,24 +51,31 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    //すでに存在している社員番号は登録できないことをDBに教える設定
     @Column(name = "code", nullable = false, unique = true)
     private String code;
 
+    //社員名
     @Column(name = "name", nullable = false)
     private String name;
 
+    //ログインパスワード、入力できる文字数最大64文字
     @Column(name = "password", length = 64, nullable = false)
     private String password;
 
+    //管理者権限があるか
     @Column(name = "admin_flag", nullable = false)
     private Integer admin_flag;
 
+    //登録日時
     @Column(name = "created_at", nullable = false)
     private Timestamp created_at;
 
+    //更新日時
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
+    //削除された従業員か
     @Column(name = "delete_flag", nullable = false)
     private Integer delete_flag;
 
