@@ -15,9 +15,10 @@ import models.Employee;
 import models.Report;
 import utils.DBUtil;
 
-
-//https://localhost:8080でトップページにアクセスできるようにするため @WebServlet("/index.html")  
-@WebServlet("/index.html")  
+/**
+ * Servlet implementation class TopPageIndexServlet
+ */
+@WebServlet("/index.html")
 public class TopPageIndexServlet extends HttpServlet {
         private static final long serialVersionUID = 1L;
 
