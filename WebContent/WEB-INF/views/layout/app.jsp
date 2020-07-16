@@ -28,7 +28,7 @@
                 </c:if>
             </div>
             <div id="content">
-                //各ページのビューの内容はいる（リクエストスコープ)
+                <!-- 各ページのビューの内容はいる（リクエストスコープ) -->
                 ${param.content}
             </div>
             <div id="footer">
