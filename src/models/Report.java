@@ -61,6 +61,16 @@ public class Report {
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
+    //出勤日時 追加
+
+    @Column(name = "syukkin", nullable = true)
+    private String syukkin;
+
+    @Column(name = "taikin", nullable = true)
+    private String taikin;
+
+
+
     public Integer getId() {
         return id;
     }
@@ -116,4 +126,20 @@ public class Report {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
+
+    //出勤、退勤
+
+    public String getSyukkin(){
+        return syukkin;
+    }
+    public void setSyukkin(String syukkin){
+        this.syukkin = syukkin;
+    }
+    public String getTaikin(){
+        return taikin;
+    }
+    public void setTaikin(String taikin){
+        this.taikin = taikin;
+    }
+
 }

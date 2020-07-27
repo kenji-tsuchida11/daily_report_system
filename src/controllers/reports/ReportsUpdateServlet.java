@@ -45,6 +45,9 @@ public class ReportsUpdateServlet extends HttpServlet {
             r.setReport_date(Date.valueOf(request.getParameter("report_date")));
             r.setTitle(request.getParameter("title"));
             r.setContent(request.getParameter("content"));
+            //出勤、退勤更新処理追加
+            r.setSyukkin(request.getParameter("syukkin"));
+            r.setTaikin(request.getParameter("taikin"));
             r.setUpdated_at(new Timestamp(System.currentTimeMillis()));
 
             List<String> errors = ReportValidator.validate(r);

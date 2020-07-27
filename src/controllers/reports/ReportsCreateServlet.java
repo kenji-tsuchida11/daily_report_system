@@ -55,6 +55,10 @@ public class ReportsCreateServlet extends HttpServlet {
             r.setTitle(request.getParameter("title"));
             r.setContent(request.getParameter("content"));
 
+            //出勤、退勤のパラメーター取得(String型),登録処理追加
+            r.setSyukkin(request.getParameter("syukkin"));
+            r.setTaikin(request.getParameter("taikin"));
+
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             r.setCreated_at(currentTime);
             r.setUpdated_at(currentTime);

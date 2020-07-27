@@ -18,6 +18,15 @@
 <c:out value="${sessionScope.login_employee.name}" />
 <br /><br />
 
+<!--出勤時間、退勤時間追加（自分で時間設定）-->
+<label for="syukkin">出勤時間</label>
+<input type="time" name="syukkin" value="${report.syukkin}" />
+<br /><br />
+<label for="taikin">退勤時間</label>
+<input type="time" name="taikin" value="${report.taikin}" />
+<br /><br />
+
+
 <label for="title">タイトル</label><br />
 <input type="text" name="title" value="${report.title}" />
 <br /><br />
